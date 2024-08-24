@@ -64,7 +64,7 @@ mysql> SELECT thread_id, name, type, processlist_user, processlist_host FROM per
 
 ### 포그라운드 스레드(클라이언트 스레드)
 
-- MySQL 서버에 접소된 클라이언트의 수만큼 존재
+- MySQL 서버에 접속된 클라이언트의 수만큼 존재
 - 각 클라이언트 사용자가 요청하는 쿼리 문장을 처리
 - 클라이언트 사용자가 작업을 다 마치고 커넥션을 종료하면 해당 스레드는 스레드 캐시로 되돌아 간다.
 - 무조건적으로 되돌아가는 것이 아닌 스레드 캐시에 일정 개수가 이미 존재하면 넣지 않고 스레드를 종료 시킨다.
@@ -78,7 +78,7 @@ mysql> SELECT thread_id, name, type, processlist_user, processlist_host FROM per
 ### 백그라운드 스레드
 
 - MyISAM의 경우 별로 해당 사항은 없고 InnoDb는 다음 작업들은 백그라운드로 처리
-    - 인서트 버펄르 병합하는 스레드
+    - 인서트 버퍼를 병합하는 스레드
     - 로그를 디스크로 기록하는 스레드
     - InnoDB 버퍼 풀의 데이터를 디스크에 기록하는 스레드
     - 데이터를 버퍼로 읽어 오는 스레드
